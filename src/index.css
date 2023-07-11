@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* defining spaced font */
+@font-face {
+  font-family: "Spaced";
+  src: url("../src/assets/fonts/spaced.ttf");
+}
+
+html {
+  overflow-x: hidden;
+  background: #000;
+  color: white;
+}
+
+/* scrollbar styling */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #212121;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4e4e4e;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* setting up the background image for entier page */
+.page-background {
+  background: url("../src/assets/images/background.svg") no-repeat;
+ position: fixed;
+ height: 100vh;
+ width: 100%;
+ top: 0;
+ left: 0;
+  color: white;
+  background-size: cover;
+  opacity: 0.7;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+/* button animation and styles */
+.button-primary:hover {
+  @apply bg-primary
+}
+.button-secondary:hover {
+  @apply bg-secondary
+}
+.button-top-left {
+  @apply absolute left-0 top-0 border-2 w-3 h-3 border-r-0 border-b-0
+}
+.button-top-right {
+  @apply absolute right-0 top-0 border-2 w-3 h-3 border-l-0 border-b-0
+}
+.button-bottom-left {
+  @apply absolute left-0 bottom-0 border-2 w-3 h-3 border-r-0 border-t-0
+}
+.button-bottom-right {
+  @apply absolute right-0 bottom-0 border-2 w-3 h-3 border-l-0 border-t-0
+}
+
+.flicker-effect {
+  animation: .07s flicker;
+  animation-iteration-count: 2;
+  transition: all .35s cubic-bezier(.75,0,.25,1);
+}
+
+@keyframes flicker {
+    0%, 50% {
+      opacity: 0;
+    }
+    51%, 100% {
+      opacity: 1;
+    }
+}
+
+
+/* down arrow animation and styles */
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.chevron {
+  position: absolute;
+  width: 3rem;
+  height: 1rem;
+  opacity: 0;
+  transform: scale(0.3);
+  -webkit-animation: move-chevron 3s ease-out infinite;
+          animation: move-chevron 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  -webkit-animation: move-chevron 3s ease-out 1s infinite;
+          animation: move-chevron 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  -webkit-animation: move-chevron 3s ease-out 2s infinite;
+          animation: move-chevron 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border: 2px solid white;
+  width: 50%;
+  background: #d4d4d44b;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skewY(40deg);
+  border-right: none;
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skewY(-40deg);
+  border-left: none;
+}
+
+@keyframes move-chevron {
+  25% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+    transform: translateY(2.58rem);
+  }
+  66.6% {
+    opacity: 1;
+    transform: translateY(3.12rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4.8rem) scale(0.5);
+  }
+}
+@-webkit-keyframes move-chevron {
+  25% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 1;
+    transform: translateY(2.58rem);
+  }
+  66.6% {
+    opacity: 1;
+    transform: translateY(3.12rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4.8rem) scale(0.5);
+  }
+}
