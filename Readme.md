@@ -1,9 +1,17 @@
-Getting Started: 
-1. yarn install
-2. yarn dev
+## Installation
 
-Tech stack:
-1. React
-2. Typescript
-3. Vite
-4. TailwindCSS
+Install and run with yarn
+
+```bash
+  1. git clone https://github.com/idevpawan/orditown-task.git
+  2. cd orditown-task
+  3. yarn install
+  4. yarn dev
+```
+## Tech stack
+```bash
+  React
+  Typescript
+  Vite
+  TailwindCSS
+```
